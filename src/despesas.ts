@@ -15,7 +15,7 @@ export function adicionarDespesa(despesas: Despesa[], nova: Despesa): Despesa[] 
 }
 
 export function removerDespesa(despesas: Despesa[], id:number): Despesa[] {
-    return despesas.filter((_,i) => i !== id)
+    return despesas.filter((despesa) => despesa.id !== id)
     // Cria um array novo que todos os items tem id diferente ao id fornecido
     // Ou seja, remove o id especificado pela função do array... 
     // Se o ID não existir, retorna um array igual porque tudo correspondeu ao filtro
