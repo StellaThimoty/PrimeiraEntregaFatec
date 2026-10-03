@@ -26,6 +26,17 @@ const despesasTeste:Despesa[] = [
     },
 ]
 
+test('Adicionar Despesas', () => {
+    const TesteA:Despesa = {id: 1, valor: 10, desc: "teste D", categoria: "Transporte", mes: 1}
+    const TesteB:Despesa = {id: 4, valor: 10, desc: "teste D", categoria: "Transporte", mes: 1}
+    const TesteC:Despesa = {id: 4, valor: 0, desc: "teste D", categoria: "Transporte", mes: 1}
+
+
+    expect(adicionarDespesa(despesasTeste, TesteB)).toEqual([{ id: 1, valor: 50, desc: "teste A", categoria: "Alimentação", mes: 1}, {id: 2, valor: 200, desc: "teste B", categoria: "Moradia", mes: 1}, {id: 3, valor: 100, desc: "teste C", categoria: "Alimentação", mes: 1}, {id: 4, valor: 10, desc: "teste D", categoria: "Transporte", mes: 1}])
+    expect(() => adicionarDespesa(despesasTeste, TesteA)).toThrow("Id existente")
+    expect(() => adicionarDespesa(despesasTeste, TesteC)).toThrow("Valor tem que ser maior que 0")
+})
+
 test('Remover Despesas', () => {
     expect(removerDespesa(despesasTeste, 4)).toEqual(despesasTeste)
     expect(removerDespesa(despesasTeste, 2)).toEqual([{id: 1, valor: 50, desc: "teste A", categoria: "Alimentação", mes: 1}, {id: 3, valor: 100, desc: "teste C", categoria: "Alimentação", mes: 1}])

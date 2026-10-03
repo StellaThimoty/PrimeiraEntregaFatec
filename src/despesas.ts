@@ -1,17 +1,14 @@
 import type { Despesa } from "./tipos.js";
 
 export function adicionarDespesa(despesas: Despesa[], nova: Despesa): Despesa[] {
-    try {
-        if(nova. valor <= 0)
+        despesas.forEach(despesa => {
+            if(despesa.id === nova.id)
+                throw new Error("Id existente")
+        });
+        if(nova.valor <= 0)
             throw new Error("Valor tem que ser maior que 0");
-        if(nova.mes > 12 || nova.mes < 1)
-            throw new Error("Mes tem que ser entre 1 e 12")
         const novaLista = [...despesas, nova]
         return novaLista
-    } catch (error) {
-        console.error(error)
-        return despesas
-    }
 }
 
 export function removerDespesa(despesas: Despesa[], id:number): Despesa[] {

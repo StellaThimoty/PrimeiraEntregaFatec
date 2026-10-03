@@ -82,21 +82,21 @@ export const ListaDespesas:Despesa[] = [
         desc: "condomínio",
         categoria: "Moradia",
         mes: 4
-    },
-    {
-        id: 12,
+    }    
+]
+
+const novaDespesa:Despesa =     {
+        id: 11,
         valor: 500,
         desc: "cartas",
         categoria: "Lazer",
         mes: 4,
         obs: "Aniversário"
-    },
-    
-]
+    }
+ 
+console.log(ListaDespesas)
+console.log(adicionarDespesa(ListaDespesas, novaDespesa))
 
-
-// console.log(ListaDespesas)
-console.log(removerDespesa(ListaDespesas, 0))
-
-console.log(totalGasto(ListaDespesas))
-console.log(maiorDespesa(ListaDespesas))
+// console.log(removerDespesa(ListaDespesas, 2))
+// console.log(totalGasto(ListaDespesas))
+// console.log(maiorDespesa(ListaDespesas))
