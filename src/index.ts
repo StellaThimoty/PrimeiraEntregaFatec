@@ -1,4 +1,5 @@
 import { adicionarDespesa, removerDespesa, despesasDaCategoria, totalGasto, maiorDespesa } from "./despesas.ts";
+import { formatarRelatorio, matrizCategoriaMes } from "./relatorio.ts";
 import type { Despesa } from "./tipos.ts";
 
 export const ListaDespesas:Despesa[] = [
@@ -86,7 +87,7 @@ export const ListaDespesas:Despesa[] = [
 ]
 
 const novaDespesa:Despesa =     {
-        id: 11,
+        id: 12,
         valor: 500,
         desc: "cartas",
         categoria: "Lazer",
@@ -94,9 +95,7 @@ const novaDespesa:Despesa =     {
         obs: "Aniversário"
     }
  
-console.log(ListaDespesas)
-console.log(adicionarDespesa(ListaDespesas, novaDespesa))
+const listanova = adicionarDespesa(ListaDespesas, novaDespesa)
+const listadnv = removerDespesa(listanova, 7)
 
-// console.log(removerDespesa(ListaDespesas, 2))
-// console.log(totalGasto(ListaDespesas))
-// console.log(maiorDespesa(ListaDespesas))
+console.log(formatarRelatorio(listadnv))
